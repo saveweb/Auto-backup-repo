@@ -3,7 +3,6 @@ with open('repos.csv', 'r') as f:
 lines = file_content.split('\n')
 
 content = lines[0] + '\n'
-print(content)
 for line in lines[1:]:
     line = line.strip()
     if not line:
