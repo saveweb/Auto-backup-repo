@@ -1,5 +1,8 @@
 import os
 
+print('自我更新...')
+os.system('git pull --force')
+
 with open('repos.csv', 'r') as f:
   file = f.read()
 lines = file.splitlines()
