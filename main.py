@@ -32,9 +32,9 @@ for line in lines:
       print('Clone时发生未知错误，返回值:'+str(log))
   if isrepo == True:
     print('Git目录存在，开始更新...')
-    repo_dir = './'+'repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
+    repo_dir = 'repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
     git_update = 'git remote update'
-    update_command = 'cd '+repo_dir+' ; '+git_update
+    update_command = 'cd '+repo_dir+' && '+git_update
     log1 = os.system(update_command)
     if log1 == 0:
       print('成功更新: '+repo_inf[1]+'/'+repo_inf[2]+'.git')
