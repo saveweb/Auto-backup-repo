@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = true
-[remote "origin"]
-	url = https://saveweb:fake_password@github.com/ioerr/ioerr.github.io
-	fetch = +refs/*:refs/*
-	mirror = true

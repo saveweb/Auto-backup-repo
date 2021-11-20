@@ -10,7 +10,7 @@ lines.sort()
 
 with open('repos.csv', 'w') as f:
   for line in lines:
-    f.write(line.replace("/", ",")+'\n')
+    f.write(line.replace("https://", "").replace("/", ",")+'\n')
 
 with open('repos.csv', 'r') as f:
   file = f.read()
@@ -29,14 +29,15 @@ for line in lines:
     if log == 0:
       print('成功Clone!')
     else:
-      print('Clone时发生未知错误，返回值:'+log)
+      print('Clone时发生未知错误，返回值:'+str(log))
   if isrepo == True:
-    print('Git目录存在，开始Update...')
+    print('Git目录存在，开始更新...')
     repo_dir = './'+'repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
     git_update = 'git remote update'
     update_command = 'cd '+repo_dir+' ; '+git_update
     log1 = os.system(update_command)
     if log1 == 0:
-      print('已更新: '+repo_inf[1]+'/'+repo_inf[2]+'.git')
+      print('成功更新: '+repo_inf[1]+'/'+repo_inf[2]+'.git')
     else:
-      print('出错，无法Update: '+repo_inf[1]+'/'+repo_inf[2]+'.git')
+      print('出错，无法Update: '+repo_inf[1]+'/'+repo_inf[2]+'.git 返回值:'+str(log1))
+print('----------------\n全部任务已完成!')
