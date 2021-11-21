@@ -2,7 +2,8 @@ import os
 
 print('自我更新...(除/repos_data/目录外，所有文件将被远端替代)')
 isupdate = os.system('git fetch --all && git reset --hard origin/main && git pull --force')
-print(isupdate)
+if isupdate != 0 :
+  print('自我更新时出错，请从以上报错中汲取灵感。')
 
 with open('repos.csv', 'r') as f:
   file = f.read()
