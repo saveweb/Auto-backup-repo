@@ -1,7 +1,8 @@
 import os
 
-print('自我更新...')
-os.system('git pull --force')
+print('自我更新...(除/repos_data/目录外，所有文件将被远端替代)')
+isupdate = os.system('git fetch --all && git reset --hard origin/main && git pull --force')
+print(isupdate)
 
 with open('repos.csv', 'r') as f:
   file = f.read()
@@ -14,7 +15,19 @@ lines.sort()
 with open('repos.csv', 'w') as f:
   for line in lines:
     f.write(line.replace("https://", "").replace("/", ",")+'\n')
+##懒得写 while 循环，直接复制粘贴一遍，233:
+with open('repos.csv', 'r') as f:
+  file = f.read()
+lines = file.splitlines()
+lines = set(lines)
+lines.discard('')
+lines = list(lines)
+lines.sort()
 
+with open('repos.csv', 'w') as f:
+  for line in lines:
+    f.write(line.replace("https://", "").replace("/", ",")+'\n')
+##循环结束
 with open('repos.csv', 'r') as f:
   file = f.read()
 lines = file.splitlines()
