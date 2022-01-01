@@ -47,9 +47,9 @@ for line in lines:
     finally:
         log = os.system(clone_command)
         if log == 0:
-        print('成功Clone!')
+            print('成功Clone!')
         else:
-        print('Clone时发生未知错误，返回值:'+str(log))
+            print('Clone时发生未知错误，返回值:'+str(log))
   if isrepo == True:
     print('Git目录存在，开始更新...')
     repo_dir = 'repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
