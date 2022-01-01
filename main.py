@@ -42,12 +42,14 @@ for line in lines:
     print('Git目录不存在，开始Clone...')
     repo_url = 'https://saveweb:fake_password@'+repo_inf[0]+'/'+repo_inf[1]+'/'+repo_inf[2]
     clone_command = 'git clone --mirror '+repo_url+' repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
-    clean_folder = os.removedirs('repos_data/'+repo_inf[1]+'/'+repo_inf[2]) #清空文件夹
-    log = os.system(clone_command)
-    if log == 0:
-      print('成功Clone!')
-    else:
-      print('Clone时发生未知错误，返回值:'+str(log))
+    try:
+        clean_folder = os.removedirs('repos_data/'+repo_inf[1]+'/'+repo_inf[2]) #清空文件夹
+    finally:
+        log = os.system(clone_command)
+        if log == 0:
+        print('成功Clone!')
+        else:
+        print('Clone时发生未知错误，返回值:'+str(log))
   if isrepo == True:
     print('Git目录存在，开始更新...')
     repo_dir = 'repos_data/'+repo_inf[1]+'/'+repo_inf[2]+'.git'
